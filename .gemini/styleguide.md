@@ -2,11 +2,13 @@
 
 The current year is 2026.
 
+IMPORTANT: Agent Platform (full name Gemini Enterprise Agent Platform) was previously named "Vertex AI" and many web resources use the legacy branding. Make sure that all new content uses the new name.
+
 ## Markdown Style (For `.md` files and `.ipynb` Markdown Cells)
 
 - Use single backticks ( ` ` ) to format inline code elements, such as variable names, function names, enum names, and brief code snippets.
-- Add documentation links to the appropriate Vertex AI pages when describing product features. e.g. https://cloud.google.com/vertex-ai/generative-ai/docs
-  - Do not reference documentation from the Gemini Developer API, e.g. https://ai.google.dev/ unless there is not a suitable page in the Vertex AI documentation.
+- Add documentation links to the appropriate Agent Platform pages when describing product features. e.g. https://docs.cloud.google.com/gemini-enterprise-agent-platform/
+  - Do not reference documentation from the Gemini Developer API, e.g. https://ai.google.dev/ unless there is not a suitable page in the Agent Platform documentation.
 
 The Author block in Notebooks and Markdown should be in a format like this:
 
@@ -80,7 +82,7 @@ app.kernel.do_shutdown(True)
 
 Always use the **Google Gen AI SDK** (`google-genai`), which is the unified
 standard library for all Gemini API requests (AI Studio/Gemini Developer API
-and Vertex AI) as of 2026. Do not use legacy libraries and SDKs.
+and Vertex AI/Agent Platform) as of 2026. Do not use legacy libraries and SDKs.
 
 -   **Library Name:** Google Gen AI SDK
 -   **Python Package:** `google-genai`
@@ -123,21 +125,26 @@ and Vertex AI) as of 2026. Do not use legacy libraries and SDKs.
 
 -   By default, use the following models when using `google-genai`:
     -   **General Text & Multimodal Tasks:** `gemini-3-flash-preview`
-    -   **Coding and Complex Reasoning Tasks:** `gemini-3-pro-preview`
-    -   **Low Latency & High Volume Tasks:** `gemini-2.5-flash-lite`
-    -   **Fast Image Generation and Editing:** `gemini-2.5-flash-image` (aka Nano Banana)
+    -   **Coding and Complex Reasoning Tasks:** `gemini-3.1-pro-preview`
+    -   **Low Latency & High Volume Tasks:** `gemini-3.1-flash-lite`
+    -   **Fast Image Generation and Editing:** `gemini-3.1-flash-image-preview` (aka Nano Banana 2)
     -   **High-Quality Image Generation and Editing:** `gemini-3-pro-image-preview` (aka Nano Banana Pro)
-    -   **High-Fidelity Video Generation:** `veo-3.0-generate-001` or `veo-3.1-generate-preview`
-    -   **Fast Video Generation:** `veo-3.0-fast-generate-001` or `veo-3.1-fast-generate-preview`
-    -   **Advanced Video Editing Tasks:** `veo-3.1-generate-preview`
+    -   **High-Fidelity Video Generation:**  or `veo-3.1-generate-001`
+    -   **Advanced Video Editing Tasks:** `veo-3.1-generate-001`
+    -   **Video Generation, Balance of speed and quality:**  `veo-3.1-fast-generate-001`
+    -   **Fast Video Generation:** `veo-3.1-lite-generate-001`
 
 -   It is also acceptable to use following models if explicitly requested by the
     user:
-    -   **Gemini 2.0 Series**: `gemini-2.0-flash`, `gemini-2.0-flash-lite`
-    -   **Gemini 2.5 Series**: `gemini-2.5-flash`, `gemini-2.5-pro`
+    -   **Gemini 2.5 Series**: `gemini-2.5-flash`, `gemini-2.5-pro`, `gemini-2.5-flash-lite`
+    -   **Nano Banana:** `gemini-2.5-flash-image`
 
 -   Do not use the following deprecated models (or their variants like
     `gemini-1.5-flash-latest`):
-    -   **Prohibited:** `gemini-1.5-flash`
-    -   **Prohibited:** `gemini-1.5-pro`
+    -   **Gemini 3 Pro**: `gemini-3-pro-preview` (Replaced by `gemini-3.1-pro-preview`)
+    -   **Gemini 2.0 Series**: `gemini-2.0-flash`, `gemini-2.0-flash-lite`
+    -   **Gemini 1.5 Series**: `gemini-1.5-flash`, `gemini-1.5-pro`
     -   **Prohibited:** `gemini-pro`
+    -   **Veo 3:** `veo-3.0-generate-001`, `veo-3.0-fast-generate-001`
+    -   **Veo 2:** `veo-2.0-generate-001`
+    -   **Imagen:** `imagegeneration@00*`, `imagetext@001` `imagen-3.0-*`, `imagen-4.0-*`
